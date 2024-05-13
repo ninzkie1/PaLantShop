@@ -17,7 +17,7 @@ namespace MoralesFiFthCRUD.ViewModels
         public string Description { get; set; }
         public decimal Price { get; set; }
         public string sellerName { get; set; }
-        
+  
         public string BuyerName { get; set; }
         public int CategoryId { get; set; }
         public bool SoldOut { get; set; }

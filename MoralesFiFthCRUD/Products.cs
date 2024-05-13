@@ -29,13 +29,12 @@ namespace MoralesFiFthCRUD
         public Nullable<int> CategoryId { get; set; }
         public byte[] ProductImg { get; set; }
         public Nullable<int> Quantity { get; set; }
-        
+        public bool SoldOut { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cart> Cart { get; set; }
         public virtual Category Category { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Cart { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseDetails> PurchaseDetails { get; set; }
-        public bool SoldOut { get; set; }
     }
 }

@@ -1,8 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="database2ModelStoreContainer" CdmEntityContainer="database2Entities4">
+  <EntityContainerMapping StorageEntityContainer="plantotoyaModelStoreContainer" CdmEntityContainer="database2Entities4">
+    <EntitySetMapping Name="Cart">
+      <EntityTypeMapping TypeName="plantotoyaModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="cartID" ColumnName="cartID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ProductImg" ColumnName="ProductImg" />
+          <ScalarProperty Name="BuyerName" ColumnName="BuyerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Category">
-      <EntityTypeMapping TypeName="database2Model.Category">
+      <EntityTypeMapping TypeName="plantotoyaModel.Category">
         <MappingFragment StoreEntitySet="Category">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -10,7 +26,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="database2Model.Products">
+      <EntityTypeMapping TypeName="plantotoyaModel.Products">
         <MappingFragment StoreEntitySet="Products">
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -23,18 +39,41 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseDetails">
+      <EntityTypeMapping TypeName="plantotoyaModel.PurchaseDetails">
+        <MappingFragment StoreEntitySet="PurchaseDetails">
+          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DateofPurchase" ColumnName="DateofPurchase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Role">
-      <EntityTypeMapping TypeName="database2Model.Role">
+      <EntityTypeMapping TypeName="plantotoyaModel.Role">
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="roleName" ColumnName="roleName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="plantotoyaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="database2Model.User">
+      <EntityTypeMapping TypeName="plantotoyaModel.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="UserImg" ColumnName="UserImg" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="password" ColumnName="password" />
@@ -47,7 +86,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserRole">
-      <EntityTypeMapping TypeName="database2Model.UserRole">
+      <EntityTypeMapping TypeName="plantotoyaModel.UserRole">
         <MappingFragment StoreEntitySet="UserRole">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="userId" ColumnName="userId" />
@@ -56,41 +95,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vw_UserProductDetails">
+      <EntityTypeMapping TypeName="plantotoyaModel.vw_UserProductDetails">
+        <MappingFragment StoreEntitySet="vw_UserProductDetails">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductImg" ColumnName="ProductImg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="vw_UserRole">
-      <EntityTypeMapping TypeName="database2Model.vw_UserRole">
+      <EntityTypeMapping TypeName="plantotoyaModel.vw_UserRole">
         <MappingFragment StoreEntitySet="vw_UserRole">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="roleName" ColumnName="roleName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Cart">
-      <EntityTypeMapping TypeName="database2Model.Cart">
-        <MappingFragment StoreEntitySet="Cart">
-          <ScalarProperty Name="BuyerName" ColumnName="BuyerName" />
-          <ScalarProperty Name="ProductImg" ColumnName="ProductImg" />
-          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="cartID" ColumnName="cartID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PurchaseDetails">
-      <EntityTypeMapping TypeName="database2Model.PurchaseDetails">
-        <MappingFragment StoreEntitySet="PurchaseDetails">
-          <ScalarProperty Name="DateofPurchase" ColumnName="DateofPurchase" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

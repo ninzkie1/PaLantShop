@@ -235,6 +235,9 @@
     <Compile Include="Role.cs">
       <DependentUpon>ModelPlant.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ModelPlant.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>ModelPlant.tt</DependentUpon>
     </Compile>
@@ -243,6 +246,10 @@
     </Compile>
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\SellerViewModel.cs" />
+    <Compile Include="ViewModels\UserProfileViewModel.cs" />
+    <Compile Include="vw_UserProductDetails.cs">
+      <DependentUpon>ModelPlant.tt</DependentUpon>
+    </Compile>
     <Compile Include="vw_UserRole.cs">
       <DependentUpon>ModelPlant.tt</DependentUpon>
     </Compile>

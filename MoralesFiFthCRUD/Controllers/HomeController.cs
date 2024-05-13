@@ -358,9 +358,32 @@ namespace MoralesFiFthCRUD.Controllers
         [Authorize(Roles = "Buyer")]
         public ActionResult Userprofile()
         {
-            return View();
+            string userName = User.Identity.Name;
+
+            // Retrieve the user from the repository based on the username
+            var user = _dbContext.User.FirstOrDefault(u => u.username == userName);
+
+            if (user == null)
+            {
+                return View("Error");
+            }
+
+            // Retrieve user profile data
+            var userProfile = new UserProfileViewModel
+            {
+                id = user.id,
+                username = user.username,
+                Email = user.email,
+                Address = user.address,
+                Password = user.password,
+                firstname = user.firstname,
+                lastname = user.lastname,
+                phonenumber = user.phonenumber
+
+            };
+            return View(userProfile);
         }
-        
+
         [Authorize(Roles = "Seller")]
         public ActionResult Resellerprofile()
         {
@@ -767,9 +790,39 @@ namespace MoralesFiFthCRUD.Controllers
             return RedirectToAction("ViewCart");
         }
 
+    
+    [HttpPost]
+    [Authorize(Roles = "Buyer")]
+    [ValidateAntiForgeryToken]
+    public ActionResult Update(UserProfileViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Retrieve the user from the database (e.g., using their username or ID)
+            var user = _dbContext.User.FirstOrDefault(u => u.username == User.Identity.Name);
+            if (user != null)
+            {
+                user.username = model.username;
+                user.password = model.Password;
+                user.firstname = model.firstname;
+                user.lastname = model.lastname;
+                user.email = model.Email;
+                user.phonenumber = model.phonenumber;
+                user.address = model.Address;
 
+                _dbContext.SaveChanges();
 
+                TempData["SuccessMsg"] = "Profile updated successfully!";
+            }
+            else
+            {
+                TempData["ErrorMsg"] = "User not found.";
+            }
+        }
+
+        return RedirectToAction("Userprofile");
     }
+}
 
 }
 
